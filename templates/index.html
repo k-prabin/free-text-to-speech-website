@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Text to Speech</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #f0f8ff;
+        font-family: Helvetica;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        color: #080808;
+      }
+      .container {
+        background-color: #f0f8ff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+      }
+      .btn-primary {
+        background-color: #1DB954;
+        border-color: #1DB954;
+      }
+      .btn-primary:hover {
+        background-color: #228b22;
+        border-color: #228b22;
+      }
+      .form-group label {
+        font-weight: bold;
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 10px;
+    }
+    footer a {
+        color: #333; 
+        text-decoration: none;
+        background:fixed
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Text to Speech Converter</h1><br>
+            <form method="post" class="mt-4">
+        <div class="form-group">
+          <label for="text">Enter Text</label>
+          <textarea class="form-control" id="text" name="text" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="voice">Select Voice</label>
+          <select class="form-control" id="voice" name="voice" required>
+            {% for voice_id, voice_name in voices.items() %}
+              <option value="{{ voice_id }}">{{ voice_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Convert</button>
+      </form>
+    </div>
+  </body>
+</html>

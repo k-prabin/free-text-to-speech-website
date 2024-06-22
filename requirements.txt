@@ -1,0 +1,3 @@
+Flask
+edge-tts
+python-docx
